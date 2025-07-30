@@ -1,10 +1,11 @@
+import { GlobalPortal } from 'GlobalPortal';
+import TestPage from 'pages/TestPage';
+
 function App() {
   return (
-    <>
-      <div>
-        <h1>first page</h1>
-      </div>
-    </>
+    <GlobalPortal.Provider>
+      <TestPage />
+    </GlobalPortal.Provider>
   );
 }
 
