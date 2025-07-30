@@ -8,14 +8,15 @@ interface PortalProviderProps {
 }
 
 function PortalProvider({ children }: PortalProviderProps) {
-  const [portalContainerRef, setPortalContainerRef] = useState<HTMLDivElement | null>(null);
+  const [portalContainerRef, setPortalContainerRef] =
+    useState<HTMLDivElement | null>(null);
 
   return (
     <PortalContext.Provider value={portalContainerRef}>
       {children}
       <div
         id="portal-container"
-        ref={elem => {
+        ref={(elem) => {
           if (portalContainerRef !== null || elem === null) {
             return;
           }
@@ -34,7 +35,7 @@ interface PortalConsumerProps {
 function PortalConsumer({ children }: PortalConsumerProps) {
   return (
     <PortalContext.Consumer>
-      {portalContainerRef => {
+      {(portalContainerRef) => {
         if (portalContainerRef === null) {
           return null;
         }
